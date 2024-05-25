@@ -16,6 +16,10 @@
 
         <!-- Custom styles for this template-->
         <link href="{{ asset('assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
+        
+    <!-- Custom styles for this page -->
+    <link href="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body id="page-top">
@@ -69,7 +73,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">General Post</h6>
                         <a class="collapse-item" href="cards.html">Daftarkan Apoteker</a>
-                        <a class="collapse-item" href="buttons.html">Obat</a>
+                        <a class="collapse-item" href="{{ route('obat.index') }}">Obat</a>
                         <a class="collapse-item" href="buttons.html">Suplier</a>
                         <a class="collapse-item" href="buttons.html">Pelanggan</a>
                     </div>
@@ -99,7 +103,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+                    <h1 class="h3 mb-4 text-gray-800">{{ $header }}</h1>
 
                     {{ $slot }}
                 </div>
@@ -164,6 +168,13 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('assets/js/sb-admin-2.min.js') }}"></script>
+
+        <!-- Page level plugins -->
+    <script src="{{ asset('assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="{{ asset('assets/js/demo/datatables-demo.js') }}"></script>
 
     </body>
 </html>
