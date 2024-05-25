@@ -11,7 +11,8 @@ class ApotekerController extends Controller
 {
     public function index()
     {
-        return view('admin.apoteker.index');
+        $apotekers = User::role('apoteker')->get();
+        return view('admin.apoteker.index', compact('apotekers'));
     }
 
     public function create()
