@@ -21,6 +21,7 @@
                             <th>Harga Beli</th>
                             <th>Harga Jual</th>
                             <th>Stok</th>
+                            <th>Option</th>
                         </tr>
                     </thead>
 
@@ -33,6 +34,14 @@
                                 <td>{{ $drug->harga_beli }}</td>
                                 <td>{{ $drug->harga_jual }}</td>
                                 <td>{{ $drug->stok }}</td>
+                                <td>
+                                    <a href="{{ route('obat.edit', $drug->id) }}" class="btn btn-warning">Edit</a> 
+                                    <form action="{{ route('obat.destroy', $drug->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

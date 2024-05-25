@@ -19,9 +19,9 @@ class DrugController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Drug $drug)
     {
-        return view('admin.drug.create');
+        return view('admin.drug.create', compact('drug'));
     }
 
     /**
@@ -44,24 +44,28 @@ class DrugController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Drug $drug)
+    public function edit($id)
     {
+        $drug = Drug::find($id);
         return view('admin.drug.edit', compact('drug'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Drug $drug)
+    public function update(Request $request, $id)
     {
-        //
+        Drug::find($id)->update($request->all());
+        return back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Drug $drug)
+    public function destroy( $id)
     {
-        //
+        $drug = Drug::find($id);
+        $drug->delete();
+        return back();
     }
 }
