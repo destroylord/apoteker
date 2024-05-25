@@ -29,9 +29,21 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        return $this->redirectByRole();
     }
 
+
+    private function redirectByRole()
+    {
+        $user = Auth::user();
+
+        if ($user->hasRole('admin'))
+              return redirect()->to('admin/dashboard');
+        
+        if ($user->hasRole('apoteker')) 
+              return redirect()->to('apoteker/dashboard');
+        
+    }
     /**
      * Destroy an authenticated session.
      */
@@ -43,6 +55,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/login');
     }
 }

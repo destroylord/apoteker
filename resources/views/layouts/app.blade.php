@@ -47,16 +47,17 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" :active="request()->routeIs('dashboard')" href="{{ route('dashboard') }}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
+            @role('admin')
 
-            <!-- Divider -->
+              <!-- Nav Item - Dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link" :active="request()->routeIs('admin.dashboard')" href="{{ route('admin.dashboard') }}">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Dashboard</span></a>
+                </li>
+
+                <!-- Divider -->
             <hr class="sidebar-divider">
-
             <!-- Heading -->
             <div class="sidebar-heading">
                 General
@@ -72,13 +73,25 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">General Post</h6>
-                        <a class="collapse-item" href="cards.html">Daftarkan Apoteker</a>
-                        <a class="collapse-item" href="{{ route('obat.index') }}">Obat</a>
+                        <a class="collapse-item" href="/admin/apoteker">Daftarkan Apoteker</a>
+                        {{-- <a class="collapse-item" href="{{ route('obat.index') }}">Obat</a> --}}
                         <a class="collapse-item" href="buttons.html">Suplier</a>
                         <a class="collapse-item" href="buttons.html">Pelanggan</a>
                     </div>
                 </div>
             </li>
+            @endrole
+
+            @role('apoteker')
+                <!-- Nav Item - Dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link" :active="request()->routeIs('apoteker.dashboard')" href="{{ route('apoteker.dashboard') }}">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Dashboard</span></a>
+                </li>
+            @endrole
+
+            
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

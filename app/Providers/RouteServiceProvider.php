@@ -7,6 +7,7 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
+use PHPUnit\Framework\Attributes\Group;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -29,6 +30,17 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         $this->routes(function () {
+
+        Route::middleware('web')
+                ->prefix('admin')
+                ->name('admin.')
+                ->group(base_path('routes/admin.php'));
+
+            Route::middleware('web')
+                ->prefix('apoteker')
+                ->name('apoteker.')
+                ->group(base_path('routes/apoteker.php'));
+
             Route::middleware('api')
                 ->prefix('api')
                 ->group(base_path('routes/api.php'));
