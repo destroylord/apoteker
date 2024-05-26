@@ -56,7 +56,7 @@
 
     <div class="container">
         <div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
-            @foreach ($obats as $obat)
+            @forelse ($obats as $obat)
                 <div class="col">
                     <div class="card h-100">
                         <div class="card-body">
@@ -69,7 +69,16 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
+            @empty
+                <div class="col">
+                    <h4 class="text-center">Tidak ada obat yang tersedia</h4>
+                    {{-- <div class="card h-100">
+                        <div class="card-body">
+                            <p class="card-text"></p>
+                        </div>
+                    </div> --}}
+                </div>
+            @endforelse
         </div>
     </div>
     </div>
