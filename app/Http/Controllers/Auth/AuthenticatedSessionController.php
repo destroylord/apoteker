@@ -42,6 +42,9 @@ class AuthenticatedSessionController extends Controller
         
         if ($user->hasRole('apoteker')) 
               return redirect()->to('apoteker/dashboard');
+
+        if ($user->hasRole('user')) 
+              return redirect()->to('/dashboard');
         
     }
     /**
