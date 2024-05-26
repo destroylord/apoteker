@@ -8,7 +8,7 @@
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex justify-content-between">
             <h6 class="m-0 font-weight-bold text-primary d-flex align-items-center">DataTables Obat</h6>
-            <a href="{{ route('obat.create') }}" class="btn btn-primary">Tambah Obat</a>
+            <a href="{{ route('admin.obat.create') }}" class="btn btn-primary">Tambah Obat</a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -35,8 +35,8 @@
                                 <td>{{ $drug->harga_jual }}</td>
                                 <td>{{ $drug->stok }}</td>
                                 <td>
-                                    <a href="{{ route('obat.edit', $drug->id) }}" class="btn btn-warning">Edit</a> 
-                                    <form action="{{ route('obat.destroy', $drug->id) }}" method="POST">
+                                    <a href="{{ route('admin.obat.edit', $drug->id) }}" class="btn btn-warning">Edit</a> 
+                                    <form action="{{ route('admin.obat.destroy', $drug->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>

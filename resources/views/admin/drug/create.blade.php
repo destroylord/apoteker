@@ -10,7 +10,7 @@
         <div class="card-header">Tambah Obat</div>
         <div class="card-body">
 
-            <form action="{{ route('obat.store') }}" method="POST">
+            <form action="{{ route('admin.obat.store') }}" method="POST">
                 @csrf
                 @include('admin.drug.partials.form')
             </form>

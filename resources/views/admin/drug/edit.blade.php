@@ -10,7 +10,7 @@
         <div class="card-header">Edit Obat</div>
         <div class="card-body">
 
-            <form action="{{ route('obat.update', $drug->id) }}" method="POST">
+            <form action="{{ route('admin.obat.update', $drug->id) }}" method="POST">
                 @csrf
                 @method('PUT')
                 @include('admin.drug.partials.form')

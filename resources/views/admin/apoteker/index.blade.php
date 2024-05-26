@@ -30,7 +30,7 @@
                                     <form action="/apoteker/delete-account/{{ $apoteker->id }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                        <button type="button" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus akun apoteker ini?');">Hapus</button>
                                     </form>
                                 </td>
                             </tr>
