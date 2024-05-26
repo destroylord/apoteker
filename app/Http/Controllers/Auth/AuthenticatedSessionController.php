@@ -44,7 +44,7 @@ class AuthenticatedSessionController extends Controller
               return redirect()->to('apoteker/dashboard');
 
         if ($user->hasRole('user')) 
-              return redirect()->to('/dashboard');
+              return redirect()->to('/');
         
     }
     /**
@@ -52,7 +52,11 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
-        Auth::guard('web')->logout();
+        $user = Auth::guard('web')->user();
+
+        if ($user && $user->hasAnyRole(['admin', 'apoteker'])) {
+            Auth::guard('web')->logout();
+        }
 
         $request->session()->invalidate();
 

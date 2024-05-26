@@ -43,8 +43,10 @@
 
                 <div class="gap-2">
                     <a href="#" class="text-decoration-none">{{ Auth::user()->name }}</a>
-                    <a href="{{ route('logout') }}" class="btn btn-outline-danger btn-sm"  onclick="event.preventDefault();
-                                        this.closest('form').submit();">Keluar Aplikasi</a>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="btn btn-outline-danger btn-sm">Keluar Aplikasi</button>
+                    </form>
                 </div>
                 @endguest
             </form>

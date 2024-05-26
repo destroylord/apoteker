@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [WelcomeController::class, 'index']);
 
 Route::middleware('auth')->group(function () {
+
     Route::resource('obat', DrugController::class);
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
