@@ -63,23 +63,18 @@
                 General
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Post</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">General Post</h6>
-                        <a class="collapse-item" href="/admin/apoteker">Daftarkan Apoteker</a>
-                        {{-- <a class="collapse-item" href="{{ route('obat.index') }}">Obat</a> --}}
-                        <a class="collapse-item" href="buttons.html">Suplier</a>
-                        <a class="collapse-item" href="buttons.html">Pelanggan</a>
-                    </div>
-                </div>
+                <a class="nav-link" href="/admin/apoteker">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Daftarkan Apoteker</span></a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/obat">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>List Obat</span></a>
+            </li>
+
             @endrole
 
             @role('apoteker')
@@ -89,6 +84,12 @@
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Dashboard</span></a>
                 </li>
+
+                 <li class="nav-item">
+                <a class="nav-link" href="/obat">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>List Obat</span></a>
+            </li>
             @endrole
 
             
