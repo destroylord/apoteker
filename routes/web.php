@@ -5,7 +5,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', )
+// Route::get('/', )
 
 Route::middleware('auth')->group(function () {
     Route::resource('obat', DrugController::class);
